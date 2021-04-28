@@ -41,3 +41,39 @@ Route:: get('arreglos' , function(){
     var_dump($estudiantes);
         echo"</pre>";
 });
+
+//
+// Fuertemente Tipados: Debe definir eñ tipo de dato
+//                      No se puede cambiar el tipo de dato
+//                      JAVA, .NET, GO
+//Debilmente Tipados: No se requiere definir el tipo de dato
+//                    Puedes cambiar el tipo de dato
+//                    PHP, JAVASCRIPT, PHYTON
+
+Route:: get("paises" , function(){
+    $paises=[   "Colombia" =>[
+                            "capital"  =>"Bogotá",
+                            "moneda"   =>"Peso",
+                            "poblacion"=>50
+                             ],
+                "Peru"     =>[
+                            "capital"  =>"Lima",
+                            "moneda"   =>"Sol",
+                            "poblacion"=>32.8
+                             ],
+                "Paraguay" =>[
+                            "capital"  =>"Asunción",
+                            "moneda"   =>"Guaraní",
+                            "poblacion"=>7.3
+                             ]
+            ];
+    $suma = 0;
+    foreach($paises as $nombre => $pais){
+       $suma += $pais ["poblacion"];
+    }
+    echo"La suma de los paises es $suma";
+
+
+
+
+});
