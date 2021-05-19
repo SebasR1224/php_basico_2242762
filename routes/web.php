@@ -43,7 +43,7 @@ Route:: get('arreglos' , function(){
 });
 
 //
-// Fuertemente Tipados: Debe definir eñ tipo de dato
+// Fuertemente Tipados: Debe definir el tipo de dato
 //                      No se puede cambiar el tipo de dato
 //                      JAVA, .NET, GO
 //Debilmente Tipados: No se requiere definir el tipo de dato
@@ -67,13 +67,19 @@ Route:: get("paises" , function(){
                             "poblacion"=>7.3
                              ]
             ];
-    $suma = 0;
-    foreach($paises as $nombre => $pais){
-       $suma += $pais ["poblacion"];
-    }
-    echo"La suma de los paises es $suma";
+
+    //Llamar a una vistas
+    //con datos de paises
+    //alias:nombre CCon el cual se van a
+    //             Seconocer los datos en la vistas
+    return view('paises')->with("naciones" , $paises);
+
 
 
 
 
 });
+
+Route::get ('formulario_buscador', "MetabuscadorController@formulario_buscador");
+
+Route::post ('buscar', "MetabuscadorController@buscar");
